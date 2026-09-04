@@ -1,0 +1,103 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: EduBLAXK
+        - generic [ref=e12]: AI Tutor
+      - generic [ref=e13]:
+        - button "Vault" [ref=e14] [cursor=pointer]
+        - button "Light" [ref=e20] [cursor=pointer]
+        - button "Settings API key needed" [ref=e28] [cursor=pointer]:
+          - generic [ref=e32]: Settings
+          - generic "API key needed" [ref=e34]
+  - main [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]: Multi-Doc Synthesis & Anti-Duplicate Memory
+          - heading "Curriculum & Assessment Engine" [level=1] [ref=e42]
+          - paragraph [ref=e43]: Transform textbooks, slide decks, and lecture notes into customized diagnostic tests. All generated questions are indexed to local JSON so repeat practice always delivers 100% fresh material.
+        - generic [ref=e44]:
+          - generic [ref=e45]: AI
+          - generic [ref=e46]:
+            - generic [ref=e47]: JSON Memory Guard
+            - generic [ref=e48]: Zero Sloppy Repeats
+      - generic [ref=e49]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - heading "Source Materials" [level=2] [ref=e58]
+            - generic [ref=e59]: 0.00 / 20 MB
+          - generic [ref=e63] [cursor=pointer]:
+            - generic [ref=e68]: Drop lecture PDFs or course notes here
+            - paragraph [ref=e69]: Select single or multiple files (PDF, TXT, Markdown). Upload up to 20MB at once.
+        - generic [ref=e71]:
+          - heading "Parameters" [level=2] [ref=e75]
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: Multiple Choice (MCQs)
+              - generic [ref=e79]: 10 Questions
+            - generic [ref=e80]:
+              - button "5" [ref=e81] [cursor=pointer]
+              - button "10" [ref=e82] [cursor=pointer]
+              - button "15" [ref=e83] [cursor=pointer]
+              - button "20" [ref=e84] [cursor=pointer]
+              - button "30" [ref=e85] [cursor=pointer]
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - generic [ref=e88]:
+                - generic [ref=e89]: Theory & Essay Prompts
+                - generic [ref=e90]: Graded against criteria rubrics
+              - checkbox [checked] [ref=e91] [cursor=pointer]
+            - generic [ref=e92]:
+              - generic [ref=e93]:
+                - generic [ref=e94]: "Theory Prompts:"
+                - generic [ref=e95]: 3 Questions
+              - generic [ref=e96]:
+                - button "2 Qs" [ref=e97] [cursor=pointer]
+                - button "3 Qs" [ref=e98] [cursor=pointer]
+                - button "5 Qs" [ref=e99] [cursor=pointer]
+                - button "8 Qs" [ref=e100] [cursor=pointer]
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - generic [ref=e103]: Anti-Duplicate Protection
+              - generic [ref=e108]: Instruct Gemini to skip past questions from JSON bank
+            - checkbox [checked] [ref=e109] [cursor=pointer]
+          - generic [ref=e110]:
+            - text: Academic Rigor Level
+            - combobox [ref=e111]:
+              - option "Foundational (Core Terminology & Concepts)"
+              - option "Intermediate (Application & Analysis)" [selected]
+              - option "Advanced (Complex Problem-Solving & Synthesis)"
+              - option "Conceptual Deep-Dive"
+          - generic [ref=e112]:
+            - text: Assessment Mode
+            - generic [ref=e113]:
+              - button "Practice Mode Instant explanations" [ref=e114] [cursor=pointer]:
+                - generic [ref=e117]:
+                  - generic [ref=e118]: Practice Mode
+                  - generic [ref=e119]: Instant explanations
+              - button "Exam Simulation Timed blind assessment" [ref=e120] [cursor=pointer]:
+                - generic [ref=e124]:
+                  - generic [ref=e125]: Exam Simulation
+                  - generic [ref=e126]: Timed blind assessment
+          - generic [ref=e127]:
+            - text: Target Chapter or Topic (Optional)
+            - textbox "e.g. Chapter 3, Organic Reactions, Formulas" [ref=e128]
+          - button "Generate Assessment" [disabled] [ref=e129] [cursor=pointer]
+  - generic [ref=e134]:
+    - generic [ref=e135]:
+      - generic [ref=e136]: 1. Overview
+      - generic [ref=e137]: 2. API Key
+      - generic [ref=e138]: 3. Defaults
+    - generic [ref=e140]:
+      - generic [ref=e144]:
+        - heading "Welcome to EduBLAXK" [level=2] [ref=e145]
+        - paragraph [ref=e146]: Academic assessment and curriculum synthesis platform. Converts course syllabi, lecture slides, and textbook chapters into diagnostic MCQs and rubric-evaluated essay assignments.
+      - generic [ref=e147]:
+        - generic [ref=e151]:
+          - heading "Local-First Privacy" [level=4] [ref=e152]
+          - paragraph [ref=e153]: All quiz attempts, answers, and study vault files stay on your device.
+        - generic [ref=e158]:
+          - heading "Rubric Evaluations" [level=4] [ref=e159]
+          - paragraph [ref=e160]: Automated scoring of open-ended essay questions with point-by-point feedback.
+      - button "Configure AI Provider" [ref=e162] [cursor=pointer]

@@ -1,0 +1,172 @@
+- generic [ref=e166]:
+  - banner [ref=e167]:
+    - generic [ref=e168]:
+      - generic [ref=e173] [cursor=pointer]:
+        - generic [ref=e174]: EduBLAXK
+        - generic [ref=e175]: AI Tutor
+      - generic [ref=e176]:
+        - button "Vault" [ref=e177] [cursor=pointer]
+        - button "Light" [ref=e183] [cursor=pointer]
+        - button "Settings API key needed" [active] [ref=e191] [cursor=pointer]:
+          - generic [ref=e195]: Settings
+          - generic "API key needed" [ref=e197]
+  - main [ref=e198]:
+    - generic [ref=e199]:
+      - generic [ref=e201]:
+        - generic [ref=e202]:
+          - generic [ref=e203]: Multi-Doc Synthesis & Anti-Duplicate Memory
+          - heading "Curriculum & Assessment Engine" [level=1] [ref=e205]
+          - paragraph [ref=e206]: Transform textbooks, slide decks, and lecture notes into customized diagnostic tests. All generated questions are indexed to local JSON so repeat practice always delivers 100% fresh material.
+        - generic [ref=e207]:
+          - generic [ref=e208]: AI
+          - generic [ref=e209]:
+            - generic [ref=e210]: JSON Memory Guard
+            - generic [ref=e211]: Zero Sloppy Repeats
+      - generic [ref=e212]:
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - heading "Source Materials" [level=2] [ref=e221]
+            - generic [ref=e222]: 0.00 / 20 MB
+          - generic [ref=e226] [cursor=pointer]:
+            - generic [ref=e231]: Drop lecture PDFs or course notes here
+            - paragraph [ref=e232]: Select single or multiple files (PDF, TXT, Markdown). Upload up to 20MB at once.
+        - generic [ref=e234]:
+          - heading "Parameters" [level=2] [ref=e238]
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]: Multiple Choice (MCQs)
+              - generic [ref=e242]: 10 Questions
+            - generic [ref=e243]:
+              - button "5" [ref=e244] [cursor=pointer]
+              - button "10" [ref=e245] [cursor=pointer]
+              - button "15" [ref=e246] [cursor=pointer]
+              - button "20" [ref=e247] [cursor=pointer]
+              - button "30" [ref=e248] [cursor=pointer]
+          - generic [ref=e249]:
+            - generic [ref=e250]:
+              - generic [ref=e251]:
+                - generic [ref=e252]: Theory & Essay Prompts
+                - generic [ref=e253]: Graded against criteria rubrics
+              - checkbox [checked] [ref=e254] [cursor=pointer]
+            - generic [ref=e255]:
+              - generic [ref=e256]:
+                - generic [ref=e257]: "Theory Prompts:"
+                - generic [ref=e258]: 3 Questions
+              - generic [ref=e259]:
+                - button "2 Qs" [ref=e260] [cursor=pointer]
+                - button "3 Qs" [ref=e261] [cursor=pointer]
+                - button "5 Qs" [ref=e262] [cursor=pointer]
+                - button "8 Qs" [ref=e263] [cursor=pointer]
+          - generic [ref=e264]:
+            - generic [ref=e265]:
+              - generic [ref=e266]: Anti-Duplicate Protection
+              - generic [ref=e271]: Instruct Gemini to skip past questions from JSON bank
+            - checkbox [checked] [ref=e272] [cursor=pointer]
+          - generic [ref=e273]:
+            - text: Academic Rigor Level
+            - combobox [ref=e274]:
+              - option "Foundational (Core Terminology & Concepts)"
+              - option "Intermediate (Application & Analysis)" [selected]
+              - option "Advanced (Complex Problem-Solving & Synthesis)"
+              - option "Conceptual Deep-Dive"
+          - generic [ref=e275]:
+            - text: Assessment Mode
+            - generic [ref=e276]:
+              - button "Practice Mode Instant explanations" [ref=e277] [cursor=pointer]:
+                - generic [ref=e280]:
+                  - generic [ref=e281]: Practice Mode
+                  - generic [ref=e282]: Instant explanations
+              - button "Exam Simulation Timed blind assessment" [ref=e283] [cursor=pointer]:
+                - generic [ref=e287]:
+                  - generic [ref=e288]: Exam Simulation
+                  - generic [ref=e289]: Timed blind assessment
+          - generic [ref=e290]:
+            - text: Target Chapter or Topic (Optional)
+            - textbox "e.g. Chapter 3, Organic Reactions, Formulas" [ref=e291]
+          - button "Generate Assessment" [disabled] [ref=e292] [cursor=pointer]
+  - generic [ref=e330]:
+    - generic [ref=e331]:
+      - generic [ref=e338]:
+        - heading "EduBLAXK Preferences" [level=3] [ref=e339]
+        - paragraph [ref=e340]: AI Provider, Models & Local Storage Settings
+      - button [ref=e341] [cursor=pointer]
+    - generic [ref=e345]:
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - generic [ref=e348]: AI Provider & API Key
+          - link "Get API Key" [ref=e353] [cursor=pointer]:
+            - /url: https://aistudio.google.com/app/apikey
+        - combobox [ref=e359]:
+          - option "Google Gemini (free tier available)" [selected]
+          - option "Anthropic Claude"
+          - option "OpenAI"
+        - generic [ref=e360]:
+          - textbox "Paste API key (saved on this computer, not the browser)" [ref=e361]
+          - generic [ref=e362]:
+            - button "Show key" [ref=e363] [cursor=pointer]
+            - button "Save & Test" [disabled] [ref=e367] [cursor=pointer]
+      - generic [ref=e368]:
+        - generic [ref=e369]: Model
+        - combobox [ref=e373]:
+          - option "Google Gemini — Gemini 2.5 Flash (free tier)" [selected]
+          - option "Google Gemini — Gemini 2.5 Flash-Lite (free tier)"
+          - option "Anthropic Claude — Claude Haiku 4.5 ($1/$5 per MTok)"
+          - option "Anthropic Claude — Claude Sonnet 5 ($2/$10 per MTok)"
+          - option "OpenAI — GPT-5 mini ($0.25/$2 per MTok)"
+        - paragraph [ref=e374]: If a model is overloaded, EduBLAXK retries once, then falls back to a same-or-cheaper model — never to a pricier tier.
+      - generic [ref=e375]:
+        - generic [ref=e376]: API Usage & Cost
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - generic [ref=e381]: Today
+            - generic [ref=e382]:
+              - generic [ref=e383]: 5 requests (5 failed)
+              - generic [ref=e384]: 0 in / 0 out tokens
+              - generic [ref=e385]: $0.00 estimated
+          - generic [ref=e386]:
+            - generic [ref=e387]: This month
+            - generic [ref=e388]:
+              - generic [ref=e389]: 5 requests
+              - generic [ref=e390]: 0 in / 0 out tokens
+              - generic [ref=e391]: $0.00 estimated
+        - table [ref=e392]:
+          - rowgroup [ref=e393]:
+            - row [ref=e394]:
+              - columnheader "Model" [ref=e395]
+              - columnheader "Requests" [ref=e396]
+              - columnheader "Tokens" [ref=e397]
+              - columnheader "Est. cost" [ref=e398]
+          - rowgroup [ref=e399]:
+            - row [ref=e400]:
+              - cell "google:gemini-2.5-flash" [ref=e401]
+              - cell "5" [ref=e402]
+              - cell "0" [ref=e403]
+              - cell "$0.00" [ref=e404]
+      - generic [ref=e405]:
+        - generic [ref=e406]: Default Assessment Parameters
+        - generic [ref=e408]:
+          - generic [ref=e409]:
+            - text: "Default MCQs:"
+            - combobox [ref=e410]:
+              - option "5 Questions"
+              - option "10 Questions" [selected]
+              - option "15 Questions"
+              - option "20 Questions"
+              - option "30 Questions"
+          - generic [ref=e411]:
+            - text: "Default Theory Qs:"
+            - combobox [ref=e412]:
+              - option "0 Theory Qs"
+              - option "2 Theory Qs"
+              - option "3 Theory Qs" [selected]
+              - option "5 Theory Qs"
+              - option "8 Theory Qs"
+      - generic [ref=e413]:
+        - generic [ref=e414]: Local Storage Vault Actions
+        - generic [ref=e417]:
+          - button "Export Vault JSON" [ref=e418] [cursor=pointer]
+          - button "Import JSON" [ref=e423] [cursor=pointer]
+          - button "Clear Vault" [ref=e428] [cursor=pointer]
+    - generic [ref=e433]:
+      - button "Cancel" [ref=e434] [cursor=pointer]
+      - button "Save Preferences" [ref=e435] [cursor=pointer]
