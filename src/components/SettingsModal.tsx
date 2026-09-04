@@ -42,8 +42,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const isDark = theme === "black-red-dark" || theme === "carbon-dark";
   const isLight = !isDark;
 
-  if (!isOpen) return null;
-
   useEffect(() => {
     getModels()
       .then((list) => {
@@ -55,6 +53,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
       .catch(() => setModels([]));
     getServerConfig().then(setServerConfig).catch(() => setServerConfig(null));
   }, [preferences.preferredModel]);
+
+  // Early return must come AFTER all hooks — App mounts this component
+  // unconditionally and toggles `isOpen`, so hook count must never change.
+  if (!isOpen) return null;
 
   const handleSaveKey = async () => {
     if (!apiKeyInput.trim()) {
