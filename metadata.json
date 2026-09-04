@@ -1,0 +1,6 @@
+{
+  "name": "EduBLAXK",
+  "description": "Local AI Tutor - Interactive Document Quiz & Theory Assessment Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
