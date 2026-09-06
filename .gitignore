@@ -8,4 +8,5 @@ coverage/
 !.env.example
 
 .edublaxk/
-.docs
+.docs/
+.playwright-mcp/
