@@ -11,7 +11,7 @@ interface HeaderProps {
   onToggleTheme?: (theme: AppTheme) => void;
   onThemeChange?: (theme: AppTheme) => void;
   historyCount: number;
-  currentView: "create" | "quiz" | "results";
+  currentView: "create" | "quiz" | "results" | "corrections";
 }
 
 export const Header: React.FC<HeaderProps> = ({

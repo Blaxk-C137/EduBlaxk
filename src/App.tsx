@@ -11,6 +11,7 @@ import { HistoryVault } from "./components/HistoryVault";
 import { UploadConfigStep } from "./components/UploadConfigStep";
 import { QuizPlayer } from "./components/QuizPlayer";
 import { QuizResults } from "./components/QuizResults";
+import { QuizCorrections } from "./components/QuizCorrections";
 import { AskTutorDrawer } from "./components/AskTutorDrawer";
 import {
   Quiz,
@@ -41,7 +42,7 @@ export default function App() {
   const [isTutorOpen, setIsTutorOpen] = useState(false);
   const [tutorQuestion, setTutorQuestion] = useState<Question | null>(null);
 
-  const [currentView, setCurrentView] = useState<"create" | "quiz" | "results">("create");
+  const [currentView, setCurrentView] = useState<"create" | "quiz" | "results" | "corrections">("create");
   const [activeQuiz, setActiveQuiz] = useState<Quiz | null>(null);
   const [activeAttempt, setActiveAttempt] = useState<QuizAttempt | null>(null);
   const [quizMode, setQuizMode] = useState<"practice" | "exam">("practice");
@@ -319,13 +320,15 @@ export default function App() {
     setIsTutorOpen(true);
   };
 
+  // The test view owns the viewport and scrolls internally, so the docked
+  // controls stay put instead of drifting with the page.
+  const isQuizView = currentView === "quiz";
+
   return (
     <div
-      className={`min-h-screen flex flex-col transition-colors duration-200 ${
-        isDark
-          ? "bg-[#09090b] text-[#f4f4f5]"
-          : "bg-zinc-50 text-zinc-900"
-      }`}
+      className={`flex flex-col transition-colors duration-200 ${
+        isQuizView ? "h-[100dvh] overflow-hidden" : "min-h-screen"
+      } ${isDark ? "bg-[#09090b] text-[#f4f4f5]" : "bg-zinc-50 text-zinc-900"}`}
     >
       {/* Navigation Header */}
       <Header
@@ -344,7 +347,13 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-2.5 sm:px-4 py-4 sm:py-8 overflow-x-hidden">
+      <main
+        className={
+          isQuizView
+            ? "flex-1 min-h-0 flex flex-col w-full"
+            : "flex-1 max-w-6xl w-full mx-auto px-2.5 sm:px-4 py-4 sm:py-8 overflow-x-hidden"
+        }
+      >
         {/* Global Loading Overlay */}
         {isLoading && (
           <div className="fixed inset-0 z-40 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
@@ -378,26 +387,36 @@ export default function App() {
         )}
 
         {/* Truncation Notice Banner */}
-        {noticeMessage && currentView === "quiz" && (
-          <div className="mb-3 p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-start justify-between gap-3">
-            <span>{noticeMessage}</span>
-            <button onClick={() => setNoticeMessage(null)} className="shrink-0 font-bold cursor-pointer">✕</button>
+        {noticeMessage && isQuizView && (
+          <div className="shrink-0 px-2.5 sm:px-4 pt-2">
+            <div className="max-w-3xl mx-auto p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-start justify-between gap-3">
+              <span>{noticeMessage}</span>
+              <button onClick={() => setNoticeMessage(null)} className="shrink-0 font-bold cursor-pointer">
+                ✕
+              </button>
+            </div>
           </div>
         )}
 
         {/* Global Error Banner */}
         {errorMessage && (
-          <div className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center justify-between gap-3 shadow-xs">
-            <div className="flex items-center gap-2.5">
-              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-              <span>{errorMessage}</span>
-            </div>
-            <button
-              onClick={() => setErrorMessage(null)}
-              className="text-rose-700 hover:text-rose-900 text-xs underline font-semibold cursor-pointer"
+          <div className={isQuizView ? "shrink-0 px-2.5 sm:px-4 pt-2" : "mb-6"}>
+            <div
+              className={`p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center justify-between gap-3 shadow-xs ${
+                isQuizView ? "max-w-3xl mx-auto" : ""
+              }`}
             >
-              Dismiss
-            </button>
+              <div className="flex items-center gap-2.5">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>{errorMessage}</span>
+              </div>
+              <button
+                onClick={() => setErrorMessage(null)}
+                className="text-rose-700 hover:text-rose-900 text-xs underline font-semibold cursor-pointer shrink-0"
+              >
+                Dismiss
+              </button>
+            </div>
           </div>
         )}
 
@@ -411,14 +430,16 @@ export default function App() {
           />
         )}
 
-        {currentView === "quiz" && activeQuiz && (
-          <QuizPlayer
-            quiz={activeQuiz}
-            mode={quizMode}
-            theme={currentTheme}
-            onSubmitQuiz={handleSubmitQuiz}
-            onCancelQuiz={() => setCurrentView("create")}
-          />
+        {isQuizView && activeQuiz && (
+          <div className="flex-1 min-h-0">
+            <QuizPlayer
+              quiz={activeQuiz}
+              mode={quizMode}
+              theme={currentTheme}
+              onSubmitQuiz={handleSubmitQuiz}
+              onCancelQuiz={() => setCurrentView("create")}
+            />
+          </div>
         )}
 
         {currentView === "results" && activeAttempt && (
@@ -432,8 +453,17 @@ export default function App() {
               setActiveAttempt(null);
               setCurrentView("create");
             }}
-            onAskTutor={handleOpenTutorForQuestion}
+            onViewCorrections={() => setCurrentView("corrections")}
             onGenerateMoreQuestions={handleGenerateMoreQuestions}
+          />
+        )}
+
+        {currentView === "corrections" && activeAttempt && (
+          <QuizCorrections
+            attempt={activeAttempt}
+            theme={currentTheme}
+            onBack={() => setCurrentView("results")}
+            onAskTutor={handleOpenTutorForQuestion}
           />
         )}
       </main>

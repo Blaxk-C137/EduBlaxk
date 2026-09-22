@@ -128,7 +128,7 @@ export const AskTutorDrawer: React.FC<AskTutorDrawerProps> = ({
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3.5">
+        <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain p-4 space-y-3.5">
           {messages.length === 0 ? (
             <div className="text-center py-10 space-y-3">
               <div
@@ -207,7 +207,7 @@ export const AskTutorDrawer: React.FC<AskTutorDrawerProps> = ({
         </div>
 
         {/* Input */}
-        <div className={`p-4 border-t border-inherit ${isDark ? "bg-[#09090b]" : "bg-zinc-50"}`}>
+        <div className={`p-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] border-t border-inherit ${isDark ? "bg-[#09090b]" : "bg-zinc-50"}`}>
           <form
             onSubmit={(e) => {
               e.preventDefault();

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Tailwind's smallest stock breakpoint is sm (40rem), which left the phone-sized
+   xs: utilities used across the components compiling to nothing. */
+@theme {
+  --breakpoint-xs: 26rem;
+}
+
 @layer base {
   :root {
     --bg-main: #fcfcfc;
@@ -22,6 +28,10 @@
     overflow-x: hidden;
   }
 
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     background-color: var(--bg-main);
     color: var(--text-primary);
@@ -30,6 +40,7 @@
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     word-break: break-word;
     overflow-wrap: anywhere;
@@ -49,6 +60,30 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #a1a1aa;
+  }
+}
+
+@layer utilities {
+  /* Bottom sheets slide up so it is obvious they came from the screen edge. */
+  @keyframes sheet-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sheet-up {
+    animation: sheet-up 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sheet-up {
+      animation: none;
+    }
   }
 }
 
